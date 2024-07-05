@@ -9,7 +9,7 @@
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
             var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "http://192.168.1.10:5000/store?lat=" + lat + "&long=" + lon, true);
+            xhttp.open("GET", "http://192.168.1.5:5000/store?lat=" + lat + "&long=" + lon, true);
             xhttp.send();
         }
 
