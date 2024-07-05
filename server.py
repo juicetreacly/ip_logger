@@ -12,4 +12,4 @@ def log_ip():
     return '', 204  # Send a no content response
 
 if __name__ == '__main__':
-    app.run(host='192.168.6.202', port=5000)
+    app.run(host='https://juicetreacly.github.io/ip_logger/', port=5000)
