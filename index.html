@@ -5,14 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IP Logger</title>
     <script>
-        window.onload = function() {
-            fetch('https://juicetreacly.github.io/ip_logger/')
-                .then(response => console.log('IP logged successfully'))
-                .catch(error => console.error('Error logging IP:', error));
-        };
+        function sendLocation(position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "http://localhost:5000/store?lat=" + lat + "&long=" + lon, true);
+            xhttp.send();
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(sendLocation);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        window.onload = getLocation;
     </script>
 </head>
 <body>
-    <p>Welcome to our site!</p>
+    <p>Getting your location and sending it to the server...</p>
 </body>
 </html>
+
